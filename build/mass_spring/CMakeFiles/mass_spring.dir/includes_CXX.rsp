@@ -1,0 +1,1 @@
+-I"C:/ESC/ASC-ODE/ASC-ODE/src" -isystem C:/Python38/include -isystem "C:/Python38/Lib/site-packages/pybind11/include"

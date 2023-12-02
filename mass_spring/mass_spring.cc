@@ -11,22 +11,22 @@ int main()
   auto mB = mss.AddMass( { 1, { 2.0, 0.0 } } );
   mss.AddSpring ( { 1, 20, { mA, mB } } );
   
-  cout << "mss: " << endl << mss << endl;
+  std::cout << "mss: " << std::endl << mss << std::endl;
 
 
   double tend = 10;
   double steps = 1000;
   
-  Vector<> x(2*mss.Masses().size());
-  Vector<> dx(2*mss.Masses().size());  
-  Vector<> ddx(2*mss.Masses().size());  
+  Vector<double> x(2*mss.Masses().size());
+  Vector<double> dx(2*mss.Masses().size());  
+  Vector<double> ddx(2*mss.Masses().size());  
 
-  auto mss_func = make_shared<MSS_Function<2>> (mss);
-  auto mass = make_shared<IdentityFunction> (x.Size());      
+  auto mss_func = std::make_shared<MSS_Function<2>> (mss);
+  auto mass = std::make_shared<IdentityFunction> (x.Size());      
 
   mss.GetState (x, dx, ddx);
   
   SolveODE_Newmark(tend, steps, x, dx,  mss_func, mass,
-                   [](double t, VectorView<double> x) { cout << "t = " << t
-                                                             << ", x = " << Vec<4>(x) << endl; });
+                   [](double t, ASC_bla::VectorView<double> x) { std::cout << "t = " << t
+                                                             << ", x = " << ASC_bla::Vector<double>(x) << std::endl; });
 }

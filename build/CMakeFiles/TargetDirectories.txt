@@ -13,11 +13,3 @@ C:/ESC/ASC-ODE/ASC-ODE/build/src/CMakeFiles/list_install_components.dir
 C:/ESC/ASC-ODE/ASC-ODE/build/src/CMakeFiles/install.dir
 C:/ESC/ASC-ODE/ASC-ODE/build/src/CMakeFiles/install/local.dir
 C:/ESC/ASC-ODE/ASC-ODE/build/src/CMakeFiles/install/strip.dir
-C:/ESC/ASC-ODE/ASC-ODE/build/mass_spring/CMakeFiles/test_mass_spring.dir
-C:/ESC/ASC-ODE/ASC-ODE/build/mass_spring/CMakeFiles/mass_spring.dir
-C:/ESC/ASC-ODE/ASC-ODE/build/mass_spring/CMakeFiles/edit_cache.dir
-C:/ESC/ASC-ODE/ASC-ODE/build/mass_spring/CMakeFiles/rebuild_cache.dir
-C:/ESC/ASC-ODE/ASC-ODE/build/mass_spring/CMakeFiles/list_install_components.dir
-C:/ESC/ASC-ODE/ASC-ODE/build/mass_spring/CMakeFiles/install.dir
-C:/ESC/ASC-ODE/ASC-ODE/build/mass_spring/CMakeFiles/install/local.dir
-C:/ESC/ASC-ODE/ASC-ODE/build/mass_spring/CMakeFiles/install/strip.dir

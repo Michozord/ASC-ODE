@@ -12,11 +12,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.27.6/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.27.6/CMakeRCCompiler.cmake"
   "CMakeFiles/3.27.6/CMakeSystem.cmake"
-  "C:/ESC/ASC-ODE/ASC-ODE/mass_spring/CMakeLists.txt"
   "C:/ESC/ASC-ODE/ASC-ODE/src/CMakeLists.txt"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeCInformation.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeCXXInformation.cmake"
-  "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeCommonLanguageInclude.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeGenericSystem.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeInitializeConfigs.cmake"
@@ -24,19 +22,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeRCInformation.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeSystemSpecificInformation.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/CMakeSystemSpecificInitialize.cmake"
-  "C:/Program Files/CMake/share/cmake-3.27/Modules/CheckCXXCompilerFlag.cmake"
-  "C:/Program Files/CMake/share/cmake-3.27/Modules/CheckCXXSourceCompiles.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/Compiler/GNU-C.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/Compiler/GNU-CXX.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/Compiler/GNU.cmake"
-  "C:/Program Files/CMake/share/cmake-3.27/Modules/FindPackageHandleStandardArgs.cmake"
-  "C:/Program Files/CMake/share/cmake-3.27/Modules/FindPackageMessage.cmake"
-  "C:/Program Files/CMake/share/cmake-3.27/Modules/FindPython.cmake"
-  "C:/Program Files/CMake/share/cmake-3.27/Modules/FindPython/Support.cmake"
-  "C:/Program Files/CMake/share/cmake-3.27/Modules/Internal/CheckCompilerFlag.cmake"
-  "C:/Program Files/CMake/share/cmake-3.27/Modules/Internal/CheckFlagCommonConfig.cmake"
-  "C:/Program Files/CMake/share/cmake-3.27/Modules/Internal/CheckSourceCompiles.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/Windows-GNU-C-ABI.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/Windows-GNU-C.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/Windows-GNU-CXX-ABI.cmake"
@@ -46,11 +35,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/Windows-windres.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/Windows.cmake"
   "C:/Program Files/CMake/share/cmake-3.27/Modules/Platform/WindowsPaths.cmake"
-  "C:/Python38/Lib/site-packages/pybind11/share/cmake/pybind11/pybind11Common.cmake"
-  "C:/Python38/Lib/site-packages/pybind11/share/cmake/pybind11/pybind11Config.cmake"
-  "C:/Python38/Lib/site-packages/pybind11/share/cmake/pybind11/pybind11ConfigVersion.cmake"
-  "C:/Python38/Lib/site-packages/pybind11/share/cmake/pybind11/pybind11NewTools.cmake"
-  "C:/Python38/Lib/site-packages/pybind11/share/cmake/pybind11/pybind11Targets.cmake"
   )
 
 # The corresponding makefile is:
@@ -63,7 +47,6 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "src/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "mass_spring/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -71,6 +54,4 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/test_ode.dir/DependInfo.cmake"
   "CMakeFiles/test_newmark.dir/DependInfo.cmake"
   "CMakeFiles/test_alpha.dir/DependInfo.cmake"
-  "mass_spring/CMakeFiles/test_mass_spring.dir/DependInfo.cmake"
-  "mass_spring/CMakeFiles/mass_spring.dir/DependInfo.cmake"
   )

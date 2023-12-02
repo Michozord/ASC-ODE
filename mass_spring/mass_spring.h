@@ -8,8 +8,8 @@
 
 using namespace ASC_ode;
 
-#include <vector.hpp>
-using namespace ngbla;
+#include <../ASC-bla/src/vector.h>
+using namespace ASC_bla;
 
 
 
@@ -18,9 +18,9 @@ class Mass
 {
 public:
   double mass;
-  Vec<D> pos;
-  Vec<D> vel = 0.0;
-  Vec<D> acc = 0.0;
+  Vector<double> pos;
+  Vector<double> vel = 0.0;
+  Vector<double> acc = 0.0;
 };
 
 
@@ -28,7 +28,7 @@ template <int D>
 class Fix
 {
 public:
-  Vec<D> pos;
+  Vector<double> pos;
 };
 
 
@@ -40,7 +40,7 @@ public:
   size_t nr;
 };
 
-ostream & operator<< (ostream & ost, const Connector & con)
+std::ostream & operator<< (std::ostream & ost, const Connector & con)
 {
   ost << "type = " << int(con.type) << ", nr = " << con.nr;
   return ost;
@@ -60,10 +60,10 @@ class MassSpringSystem
   std::vector<Fix<D>> fixes;
   std::vector<Mass<D>> masses;
   std::vector<Spring> springs;
-  Vec<D> gravity=0.0;
+  Vector<double> gravity=0.0;
 public:
-  void SetGravity (Vec<D> _gravity) { gravity = _gravity; }
-  Vec<D> Gravity() const { return gravity; }
+  void SetGravity (Vector<double> _gravity) { gravity = _gravity; }
+  Vector<double> Gravity() const { return gravity; }
   
   Connector AddFix (Fix<D> p)
   {
@@ -90,7 +90,7 @@ public:
   auto & Masses() { return masses; } 
   auto & Springs() { return springs; }
 
-  void GetState (VectorView<> values, VectorView<> dvalues, VectorView<> ddvalues)
+  void GetState (VectorView<double> values, VectorView<double> dvalues, VectorView<double> ddvalues)
   {
     auto valmat = values.AsMatrix(Masses().size(), D);
     auto dvalmat = dvalues.AsMatrix(Masses().size(), D);
@@ -104,7 +104,7 @@ public:
       }
   }
   
-  void SetState (VectorView<> values, VectorView<> dvalues, VectorView<> ddvalues)
+  void SetState (VectorView<double> values, VectorView<double> dvalues, VectorView<double> ddvalues)
   {
     auto valmat = values.AsMatrix(Masses().size(), D);
     auto dvalmat = dvalues.AsMatrix(Masses().size(), D);
@@ -120,7 +120,7 @@ public:
 };
 
 template <int D>
-ostream & operator<< (ostream & ost, MassSpringSystem<D> & mss)
+std::ostream & operator<< (std::ostream & ost, MassSpringSystem<D> & mss)
 {
   ost << "fixes:" << endl;
   for (auto f : mss.Fixes())
@@ -162,7 +162,7 @@ public:
     for (auto spring : mss.Springs())
       {
         auto [c1,c2] = spring.connections;
-        Vec<D> p1, p2;
+        Vector<double> p1, p2;
         if (c1.type == Connector::FIX)
           p1 = mss.Fixes()[c1.nr].pos;
         else
@@ -172,7 +172,7 @@ public:
         else
           p2 = xmat.Row(c2.nr);
 
-        double force = spring.stiffness * (L2Norm(p1-p2)-spring.length);
+        double force = spring.stiffness * ((p1 + (-1)*p2).L2Norm()-spring.length);
         Vec<D> dir12 = 1.0/L2Norm(p1-p2) * (p2-p1);
         if (c1.type == Connector::MASS)
           fmat.Row(c1.nr) += force*dir12;
@@ -188,7 +188,7 @@ public:
   {
     // TODO: exact differentiation
     double eps = 1e-8;
-    Vector<> xl(DimX()), xr(DimX()), fl(DimF()), fr(DimF());
+    Vector<double> xl(DimX()), xr(DimX()), fl(DimF()), fr(DimF());
     for (size_t i = 0; i < DimX(); i++)
       {
         xl = x;
@@ -197,7 +197,7 @@ public:
         xr(i) += eps;
         Evaluate (xl, fl);
         Evaluate (xr, fr);
-        df.Col(i) = 1/(2*eps) * (fr-fl);
+        df.Col(i) = 1/(2*eps) * (fr + (-1) * fl);
       }
   }
   

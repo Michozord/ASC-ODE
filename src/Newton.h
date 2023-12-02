@@ -6,22 +6,26 @@
 namespace ASC_ode
 {
 
-  void NewtonSolver (shared_ptr<NonlinearFunction> func, VectorView<double> x,
+  using namespace ASC_bla;
+
+  void NewtonSolver (std::shared_ptr<NonlinearFunction> func, VectorView<double> x,
                      double tol = 1e-10, int maxsteps = 10,
                      std::function<void(int,double,VectorView<double>)> callback = nullptr)
   {
-    Vector<> res(func->DimF());
-    Matrix<> fprime(func->DimF(), func->DimX());
+    Vector<double> res(func->DimF());
+    Matrix<double, ColMajor> fprime(func->DimF(), func->DimX());
 
     for (int i = 0; i < maxsteps; i++)
       {
         func->Evaluate(x, res);
         // cout << "|res| = " << L2Norm(res) << endl;
         func->EvaluateDeriv(x, fprime);
-        CalcInverse(fprime);
-        x -= fprime*res;
+        fprime = fprime.invert();
+        //VectorView<double> tmp (fprime.Width(), );
 
-        double err= L2Norm(res);
+        x = Vector<double>(x) + (-1)* Vector<double>(fprime*res);
+
+        double err= res.L2Norm();
         if (callback)
           callback(i, err, x);
         if (err < tol) return;

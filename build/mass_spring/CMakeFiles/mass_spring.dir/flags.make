@@ -6,5 +6,5 @@ CXX_DEFINES = -Dmass_spring_EXPORTS
 
 CXX_INCLUDES = @CMakeFiles/mass_spring.dir/includes_CXX.rsp
 
-CXX_FLAGS = -std=gnu++17 -fvisibility=hidden
+CXX_FLAGS =  -march=native -std=gnu++17 -fvisibility=hidden
 

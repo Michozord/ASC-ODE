@@ -199,32 +199,6 @@ test_alpha/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha.dir\build.make CMakeFiles/test_alpha.dir/build
 .PHONY : test_alpha/fast
 
-#=============================================================================
-# Target rules for targets named test_mass_spring
-
-# Build rule for target.
-test_mass_spring: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_mass_spring
-.PHONY : test_mass_spring
-
-# fast build rule for target.
-test_mass_spring/fast:
-	$(MAKE) $(MAKESILENT) -f mass_spring\CMakeFiles\test_mass_spring.dir\build.make mass_spring/CMakeFiles/test_mass_spring.dir/build
-.PHONY : test_mass_spring/fast
-
-#=============================================================================
-# Target rules for targets named mass_spring
-
-# Build rule for target.
-mass_spring: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 mass_spring
-.PHONY : mass_spring
-
-# fast build rule for target.
-mass_spring/fast:
-	$(MAKE) $(MAKESILENT) -f mass_spring\CMakeFiles\mass_spring.dir\build.make mass_spring/CMakeFiles/mass_spring.dir/build
-.PHONY : mass_spring/fast
-
 demos/test_alpha.obj: demos/test_alpha.cc.obj
 .PHONY : demos/test_alpha.obj
 
@@ -309,9 +283,7 @@ help:
 	@echo ... install/strip
 	@echo ... list_install_components
 	@echo ... rebuild_cache
-	@echo ... mass_spring
 	@echo ... test_alpha
-	@echo ... test_mass_spring
 	@echo ... test_newmark
 	@echo ... test_ode
 	@echo ... demos/test_alpha.obj

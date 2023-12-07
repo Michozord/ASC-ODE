@@ -1,6 +1,10 @@
 #include <nonlinfunc.h>
 #include <ode.h>
 #include <cmath>
+#include <iostream>
+#include <sstream>
+#include <fstream>
+#include <string.h>
 
 using namespace ASC_ode;
 
@@ -28,10 +32,12 @@ class MassSpring : public NonlinearFunction
 int main()
 {
   double tend = 4*M_PI;
-  int steps = 100;
+  int steps = 1000;
   ASC_bla::Vector<double> y { 1, 0 };
   auto rhs = std::make_shared<MassSpring>();
-  
+  std::ofstream ost;
+  ost.open ("C:/ESC/ASC-ODE/ASC-ODE/py_tests/output.txt");
   SolveODE_IE(tend, steps, y, rhs,
-              [](double t, VectorView<double> y) { std::cout << t << "  " << y(0) << " " << y(1) << std::endl; });
+              [&ost](double t, VectorView<double> y) { ost << t << "  " << y(0) << " " << y(1) << "\n"; });
+  ost.close();
 }

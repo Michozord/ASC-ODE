@@ -34,7 +34,7 @@ namespace ASC_ode
     void EvaluateDeriv (VectorView<double> x, MatrixView<double, ColMajor> df) const override
     {
       df = 0.0;
-      // df.Diag() = 1.0; todo
+      df.Diag() = 1.0;
     }
   };
 
@@ -221,7 +221,7 @@ namespace ASC_ode
     void EvaluateDeriv (VectorView<double> x, MatrixView<double, ColMajor> df) const override
     {
       df = 0.0;
-      //df.Diag().Range(first, next) = 1; todo
+      df.Diag().Range(first, next) = 1; 
     }
   };
 

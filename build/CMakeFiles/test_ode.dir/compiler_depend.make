@@ -42,6 +42,7 @@ CMakeFiles/test_ode.dir/demos/test_ode.cc.obj: C:/ESC/ASC-ODE/ASC-ODE/demos/test
   C:/MinGW/i686-w64-mingw32/include/sdks/_mingw_ddk.h \
   C:/MinGW/i686-w64-mingw32/include/sec_api/stdio_s.h \
   C:/MinGW/i686-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/MinGW/i686-w64-mingw32/include/sec_api/string_s.h \
   C:/MinGW/i686-w64-mingw32/include/sec_api/sys/timeb_s.h \
   C:/MinGW/i686-w64-mingw32/include/sec_api/wchar_s.h \
   C:/MinGW/i686-w64-mingw32/include/signal.h \
@@ -49,6 +50,7 @@ CMakeFiles/test_ode.dir/demos/test_ode.cc.obj: C:/ESC/ASC-ODE/ASC-ODE/demos/test
   C:/MinGW/i686-w64-mingw32/include/stdint.h \
   C:/MinGW/i686-w64-mingw32/include/stdio.h \
   C:/MinGW/i686-w64-mingw32/include/stdlib.h \
+  C:/MinGW/i686-w64-mingw32/include/string.h \
   C:/MinGW/i686-w64-mingw32/include/swprintf.inl \
   C:/MinGW/i686-w64-mingw32/include/sys/timeb.h \
   C:/MinGW/i686-w64-mingw32/include/sys/types.h \
@@ -161,6 +163,7 @@ CMakeFiles/test_ode.dir/demos/test_ode.cc.obj: C:/ESC/ASC-ODE/ASC-ODE/demos/test
   C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/shared_ptr_atomic.h \
   C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/shared_ptr_base.h \
   C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/specfun.h \
+  C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/sstream.tcc \
   C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/std_abs.h \
   C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/std_function.h \
   C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/std_mutex.h \
@@ -248,6 +251,7 @@ CMakeFiles/test_ode.dir/demos/test_ode.cc.obj: C:/ESC/ASC-ODE/ASC-ODE/demos/test
   C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/pstl/glue_memory_defs.h \
   C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/pstl/pstl_config.h \
   C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/ratio \
+  C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/sstream \
   C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/stdexcept \
   C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/stdlib.h \
   C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/streambuf \
@@ -399,19 +403,15 @@ C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/avx512cdintrin.h:
 
 C:/ESC/ASC-ODE/ASC-ODE/ASC-bla/src/expression.h:
 
-C:/ESC/ASC-ODE/ASC-ODE/ASC-bla/src/vector.h:
-
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/avx5124vnniwintrin.h:
+
+C:/ESC/ASC-ODE/ASC-ODE/ASC-bla/src/vector.h:
 
 C:/MinGW/i686-w64-mingw32/include/assert.h:
 
 C:/ESC/ASC-ODE/ASC-ODE/src/Newton.h:
 
 C:/ESC/ASC-ODE/ASC-ODE/src/nonlinfunc.h:
-
-C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/pstl/glue_memory_defs.h:
-
-C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/avx5124fmapsintrin.h:
 
 C:/ESC/ASC-ODE/ASC-ODE/src/ode.h:
 
@@ -485,7 +485,11 @@ C:/MinGW/i686-w64-mingw32/include/pthread_signal.h:
 
 C:/MinGW/i686-w64-mingw32/include/sys/types.h:
 
+C:/MinGW/i686-w64-mingw32/include/string.h:
+
 C:/MinGW/i686-w64-mingw32/include/sec_api/stdlib_s.h:
+
+C:/MinGW/i686-w64-mingw32/include/sec_api/string_s.h:
 
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/specfun.h:
 
@@ -528,6 +532,10 @@ C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/amxfp16intrin.h:
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/stl_raw_storage_iter.h:
 
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/amxtileintrin.h:
+
+C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/pstl/glue_memory_defs.h:
+
+C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/avx5124fmapsintrin.h:
 
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/locale_classes.tcc:
 
@@ -743,6 +751,8 @@ C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/shared_ptr_atomic.h:
 
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/shared_ptr_base.h:
 
+C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/sstream.tcc:
+
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/std_mutex.h:
 
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/bits/std_thread.h:
@@ -873,6 +883,10 @@ C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/mutex:
 
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/pstl/glue_algorithm_defs.h:
 
+C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/rtmintrin.h:
+
+C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/sstream:
+
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/stdlib.h:
 
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/c++/streambuf:
@@ -954,8 +968,6 @@ C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/prfchiintrin.h:
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/prfchwintrin.h:
 
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/raointintrin.h:
-
-C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/rtmintrin.h:
 
 C:/MinGW/lib/gcc/i686-w64-mingw32/13.2.0/include/serializeintrin.h:
 

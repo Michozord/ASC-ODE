@@ -31,6 +31,24 @@ namespace ASC_ode
       }
   }
 
+  // explicit Euler method for dy/dt = rhs(y)
+  void SolveODE_EE(double tend, int steps,
+                   VectorView<double> y, std::shared_ptr<NonlinearFunction> rhs,
+                   std::function<void(double,VectorView<double>)> callback = nullptr)
+  {
+    double dt = tend/steps;
+
+    double t = 0;
+    for (int i = 0; i < steps; i++)
+      {
+        Vector<double> f(rhs->DimF());
+        rhs->Evaluate(y, f);
+        y = Vector<double>(y + dt * f);
+        t += dt;
+        if (callback) callback(t, y);
+      }
+  }
+
   
 
   

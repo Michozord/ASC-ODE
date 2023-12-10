@@ -20,9 +20,7 @@ namespace ASC_ode
         func->Evaluate(x, res);
         // cout << "|res| = " << L2Norm(res) << endl;
         func->EvaluateDeriv(x, fprime);
-        std::cout<<"before inversion \n"<<fprime<<std::endl;
         fprime = fprime.invert();
-        std::cout<<"after inversion \n"<<fprime<<std::endl;
         //VectorView<double> tmp (fprime.Width(), );
 
         x = Vector<double>(x) + (-1)* Vector<double>(fprime*res);

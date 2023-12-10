@@ -9,7 +9,7 @@ namespace ASC_ode
   using namespace ASC_bla;
 
   void NewtonSolver (std::shared_ptr<NonlinearFunction> func, VectorView<double> x,
-                     double tol = 1e-10, int maxsteps = 10,
+                     double tol = 1e-10, int maxsteps = 20,
                      std::function<void(int,double,VectorView<double>)> callback = nullptr)
   {
     Vector<double> res(func->DimF());
@@ -20,11 +20,12 @@ namespace ASC_ode
         func->Evaluate(x, res);
         // cout << "|res| = " << L2Norm(res) << endl;
         func->EvaluateDeriv(x, fprime);
+        std::cout<<"before inversion \n"<<fprime<<std::endl;
         fprime = fprime.invert();
+        std::cout<<"after inversion \n"<<fprime<<std::endl;
         //VectorView<double> tmp (fprime.Width(), );
 
         x = Vector<double>(x) + (-1)* Vector<double>(fprime*res);
-
         double err= res.L2Norm();
         if (callback)
           callback(i, err, x);

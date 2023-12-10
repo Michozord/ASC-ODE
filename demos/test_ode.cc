@@ -1,6 +1,7 @@
+#define _USE_MATH_DEFINES 
+#include <cmath>        //has to be the FIRST include, otherwise does not work!
 #include <nonlinfunc.h>
 #include <ode.h>
-#include <cmath>
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -32,7 +33,7 @@ class MassSpring : public NonlinearFunction
 int main()
 {
   double tend = 4*M_PI;
-  int steps = 1000;
+  int steps = 100;
   ASC_bla::Vector<double> y { 1, 0 };
   auto rhs = std::make_shared<MassSpring>();
   std::ofstream ost;

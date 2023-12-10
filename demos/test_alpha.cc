@@ -1,6 +1,8 @@
+#define _USE_MATH_DEFINES 
+#include <cmath>          //has to be the FIRST include, otherwise does not work!
 #include <nonlinfunc.h>
 #include <ode.h>
-#include <cmath>
+
 
 using namespace ASC_ode;
 

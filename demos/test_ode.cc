@@ -17,7 +17,7 @@ class MassSpring : public NonlinearFunction
   
   void Evaluate (VectorView<double> x, VectorView<double> f) const override
   {
-    f(0) = x(1);
+    f(0) = x(1); // x(0) - position, x(1) - velocity
     f(1) = -x(0);
   }
   
@@ -37,8 +37,13 @@ int main()
   ASC_bla::Vector<double> y { 1, 0 };
   auto rhs = std::make_shared<MassSpring>();
   std::ofstream ost;
-  ost.open ("C:/ESC/ASC-ODE/ASC-ODE/py_tests/output.txt");
+  ost.open ("C:/ESC/ASC-ODE/ASC-ODE/py_tests/output_ie.txt");
   SolveODE_IE(tend, steps, y, rhs,
               [&ost](double t, VectorView<double> y) { ost << t << "  " << y(0) << " " << y(1) << "\n"; });
   ost.close();
+  std::ofstream ost2;
+  ost2.open ("C:/ESC/ASC-ODE/ASC-ODE/py_tests/output_ee.txt");
+  SolveODE_EE(tend, steps, y, rhs,
+              [&ost2](double t, VectorView<double> y) { ost2 << t << "  " << y(0) << " " << y(1) << "\n"; });
+  ost2.close();
 }

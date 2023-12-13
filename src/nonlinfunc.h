@@ -224,6 +224,73 @@ namespace ASC_ode
     }
   };
 
+  class BlockFunction : public NonlinearFunction
+  {
+    size_t s;   // number of stages
+    std::shared_ptr<NonlinearFunction>* funs;
+  public:
+    BlockFunction(size_t _s, std::shared_ptr<NonlinearFunction>* _funs)
+      : s(_s), funs(_funs) { }
+
+    size_t DimX() const override { return funs[0]->DimX(); }
+    size_t DimF() const override { return s*funs[0]->DimF(); }
+
+    void Evaluate(VectorView<double> x, VectorView<double> f) const override{
+      for(size_t i=0; i<s; i++){
+        std::shared_ptr<NonlinearFunction> fun = funs[i];
+        size_t dim_f = fun->DimF();
+        Vector<double> tmp(dim_f);
+        fun->Evaluate(x, tmp);
+        for(size_t j=0; j<dim_f; j++){
+          f(i * dim_f + j) = tmp(j);
+        }
+      }
+    }
+    void EvaluateDeriv(VectorView<double> x, MatrixView<double, ColMajor> df) const override{
+      size_t dim_f = funs[0]->DimF();
+      Matrix<double, ColMajor> tmp (dim_f, s * dim_f);
+      for(size_t j=0; j<s; j++){
+        std::shared_ptr<NonlinearFunction> fun = funs[j];
+        fun->EvaluateDeriv(x, tmp);     // tmp = Df_j Jacobi-Matrix of j-th function 
+        df.Rows(j*dim_f, (j+1)*dim_f) = tmp;
+      }
+    }
+  };
+
+  class BlockMatVec : public NonlinearFunction
+  {
+    Matrix<double, ColMajor> A;
+    std::shared_ptr<NonlinearFunction> vecfun;
+    size_t j;
+      
+  public:
+    BlockMatVec(Matrix<double, ColMajor> _A, std::shared_ptr<NonlinearFunction> _vecfun, size_t _j)
+      : A(_A), vecfun(_vecfun), j(_j) { }
+    
+    size_t DimX() const override { return vecfun->DimX(); }
+    size_t DimF() const override { return (vecfun->DimF())/A.Height(); }
+
+    void Evaluate(VectorView<double> x, VectorView<double> f) const override{
+      f = 0.;
+      size_t s = A.Height();
+      size_t n = (vecfun->DimF())/s;
+      Vector<double> tmp (vecfun->DimF());
+      vecfun->Evaluate(x, tmp);
+      for(size_t l=0; l<s; l++){
+        f = f + (A(j, l) * tmp.Range(n*l, n*(l+1)));
+      }
+    }
+    void EvaluateDeriv(VectorView<double> x, MatrixView<double, ColMajor> df) const override {
+      size_t s = A.Height();
+      size_t n = (vecfun->DimF())/s;
+      for(size_t l = 0; l < s; l++){
+        Matrix<double, ColMajor> tmp (df.Height(), df.Height());
+        tmp.Diag() = A(j, l);
+        df.Rows(n*l, n*(l+1)) = tmp;
+      }
+    }
+  };
+
   
 }
 

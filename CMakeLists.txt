@@ -13,11 +13,12 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -march=native")
 include_directories(src)
 add_subdirectory (src)
 
-add_executable (test_ode demos/test_ode.cc)
+# add_executable (test_ode demos/test_ode.cc)
 
-add_executable (test_newmark demos/test_newmark.cc)
+# add_executable (test_newmark demos/test_newmark.cc)
 
-add_executable (test_alpha demos/test_alpha.cc)
+# add_executable (test_alpha demos/test_alpha.cc)
 
+add_executable (test_RK demos/test_RK.cc)
 
 #add_subdirectory (mass_spring)

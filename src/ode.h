@@ -49,6 +49,46 @@ namespace ASC_ode
       }
   }
 
+ // <template ASC_bla::ORDERING ORD>
+  void SolveODE_RK(double tend, int steps,
+                   VectorView<double> y, std::shared_ptr<NonlinearFunction> rhs,
+                   Matrix<double, ColMajor> A, Vector<double> b,
+                   std::function<void(double,VectorView<double>)> callback = nullptr)
+  {
+    double dt = tend/steps;
+    auto yold = std::make_shared<ConstantFunction>(y);
+    int s = b.Size();   // number of stages
+    int n = y.Size();
+    auto k = std::make_shared<IdentityFunction>(y.Size() * s);
+    std::shared_ptr<NonlinearFunction>* funs = new std::shared_ptr<NonlinearFunction> [s];
+    for (size_t i = 0; i<s; i++){
+      auto tmp = std::make_shared<BlockMatVec>(A, k, i);
+      funs[i] = Compose(rhs, yold + dt * tmp);
+    }
+    auto block_f = std::make_shared<BlockFunction>(s, funs);
+    auto equ = k - block_f;
+    double t = 0;
+    for (size_t i = 0; i < steps; i++)
+      {
+        Vector<double> k_0 (n * s);
+        for(size_t j=0; j < n * s; j++){
+          rhs->Evaluate(y, k_0.Range(j * n, (j+1) * n));
+        }
+        std::cout<<"1\n";
+        NewtonSolver (equ, k_0);
+        std::cout<<"2\n";
+        Vector<double> incr(n);
+        incr = 0.;
+        for(size_t l=0; l<s; l++){
+          incr = incr + b(l) * k_0.Range(l*n, (l+1)*n); 
+        }
+        y = y + dt * incr;
+        yold->Set(y);
+        t += dt;
+        if (callback) callback(t, y);
+      }
+  }
+
   
 
   

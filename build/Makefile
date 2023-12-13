@@ -161,115 +161,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_ode
+# Target rules for targets named test_RK
 
 # Build rule for target.
-test_ode: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_ode
-.PHONY : test_ode
+test_RK: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_RK
+.PHONY : test_RK
 
 # fast build rule for target.
-test_ode/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_ode.dir\build.make CMakeFiles/test_ode.dir/build
-.PHONY : test_ode/fast
+test_RK/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_RK.dir\build.make CMakeFiles/test_RK.dir/build
+.PHONY : test_RK/fast
 
-#=============================================================================
-# Target rules for targets named test_newmark
-
-# Build rule for target.
-test_newmark: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_newmark
-.PHONY : test_newmark
-
-# fast build rule for target.
-test_newmark/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_newmark.dir\build.make CMakeFiles/test_newmark.dir/build
-.PHONY : test_newmark/fast
-
-#=============================================================================
-# Target rules for targets named test_alpha
-
-# Build rule for target.
-test_alpha: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_alpha
-.PHONY : test_alpha
-
-# fast build rule for target.
-test_alpha/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha.dir\build.make CMakeFiles/test_alpha.dir/build
-.PHONY : test_alpha/fast
-
-demos/test_alpha.obj: demos/test_alpha.cc.obj
-.PHONY : demos/test_alpha.obj
+demos/test_RK.obj: demos/test_RK.cc.obj
+.PHONY : demos/test_RK.obj
 
 # target to build an object file
-demos/test_alpha.cc.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha.dir\build.make CMakeFiles/test_alpha.dir/demos/test_alpha.cc.obj
-.PHONY : demos/test_alpha.cc.obj
+demos/test_RK.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_RK.dir\build.make CMakeFiles/test_RK.dir/demos/test_RK.cc.obj
+.PHONY : demos/test_RK.cc.obj
 
-demos/test_alpha.i: demos/test_alpha.cc.i
-.PHONY : demos/test_alpha.i
-
-# target to preprocess a source file
-demos/test_alpha.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha.dir\build.make CMakeFiles/test_alpha.dir/demos/test_alpha.cc.i
-.PHONY : demos/test_alpha.cc.i
-
-demos/test_alpha.s: demos/test_alpha.cc.s
-.PHONY : demos/test_alpha.s
-
-# target to generate assembly for a file
-demos/test_alpha.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha.dir\build.make CMakeFiles/test_alpha.dir/demos/test_alpha.cc.s
-.PHONY : demos/test_alpha.cc.s
-
-demos/test_newmark.obj: demos/test_newmark.cc.obj
-.PHONY : demos/test_newmark.obj
-
-# target to build an object file
-demos/test_newmark.cc.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_newmark.dir\build.make CMakeFiles/test_newmark.dir/demos/test_newmark.cc.obj
-.PHONY : demos/test_newmark.cc.obj
-
-demos/test_newmark.i: demos/test_newmark.cc.i
-.PHONY : demos/test_newmark.i
+demos/test_RK.i: demos/test_RK.cc.i
+.PHONY : demos/test_RK.i
 
 # target to preprocess a source file
-demos/test_newmark.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_newmark.dir\build.make CMakeFiles/test_newmark.dir/demos/test_newmark.cc.i
-.PHONY : demos/test_newmark.cc.i
+demos/test_RK.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_RK.dir\build.make CMakeFiles/test_RK.dir/demos/test_RK.cc.i
+.PHONY : demos/test_RK.cc.i
 
-demos/test_newmark.s: demos/test_newmark.cc.s
-.PHONY : demos/test_newmark.s
-
-# target to generate assembly for a file
-demos/test_newmark.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_newmark.dir\build.make CMakeFiles/test_newmark.dir/demos/test_newmark.cc.s
-.PHONY : demos/test_newmark.cc.s
-
-demos/test_ode.obj: demos/test_ode.cc.obj
-.PHONY : demos/test_ode.obj
-
-# target to build an object file
-demos/test_ode.cc.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_ode.dir\build.make CMakeFiles/test_ode.dir/demos/test_ode.cc.obj
-.PHONY : demos/test_ode.cc.obj
-
-demos/test_ode.i: demos/test_ode.cc.i
-.PHONY : demos/test_ode.i
-
-# target to preprocess a source file
-demos/test_ode.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_ode.dir\build.make CMakeFiles/test_ode.dir/demos/test_ode.cc.i
-.PHONY : demos/test_ode.cc.i
-
-demos/test_ode.s: demos/test_ode.cc.s
-.PHONY : demos/test_ode.s
+demos/test_RK.s: demos/test_RK.cc.s
+.PHONY : demos/test_RK.s
 
 # target to generate assembly for a file
-demos/test_ode.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_ode.dir\build.make CMakeFiles/test_ode.dir/demos/test_ode.cc.s
-.PHONY : demos/test_ode.cc.s
+demos/test_RK.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_RK.dir\build.make CMakeFiles/test_RK.dir/demos/test_RK.cc.s
+.PHONY : demos/test_RK.cc.s
 
 # Help Target
 help:
@@ -283,18 +209,10 @@ help:
 	@echo ... install/strip
 	@echo ... list_install_components
 	@echo ... rebuild_cache
-	@echo ... test_alpha
-	@echo ... test_newmark
-	@echo ... test_ode
-	@echo ... demos/test_alpha.obj
-	@echo ... demos/test_alpha.i
-	@echo ... demos/test_alpha.s
-	@echo ... demos/test_newmark.obj
-	@echo ... demos/test_newmark.i
-	@echo ... demos/test_newmark.s
-	@echo ... demos/test_ode.obj
-	@echo ... demos/test_ode.i
-	@echo ... demos/test_ode.s
+	@echo ... test_RK
+	@echo ... demos/test_RK.obj
+	@echo ... demos/test_RK.i
+	@echo ... demos/test_RK.s
 .PHONY : help
 
 

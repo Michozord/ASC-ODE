@@ -16,7 +16,7 @@ class RHS : public NonlinearFunction
   }
   void EvaluateDeriv (ASC_bla::VectorView<double> x, ASC_bla::MatrixView<double, ColMajor> df) const override
   {
-    // df(0) = -1;
+    df(0,0) = -1;
   }
 };
 

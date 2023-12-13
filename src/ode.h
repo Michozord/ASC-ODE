@@ -81,14 +81,12 @@ namespace ASC_ode
     auto xnew = xold + dt*vold + dt*dt/2 * ((1-2*beta)*aold+2*beta*anew);    
 
     auto equ = Compose(mass, anew) - Compose(rhs, xnew);
-
     double t = 0;
     for (int i = 0; i < steps; i++)            
       {
         NewtonSolver (equ, a);
         xnew -> Evaluate (a, x);
         vnew -> Evaluate (a, v);
-
         xold->Set(x);
         vold->Set(v);
         aold->Set(a);

@@ -159,10 +159,9 @@ namespace ASC_ode
       
       Matrix<double, ColMajor> jaca(fa->DimF(), fa->DimX());
       Matrix<double, ColMajor> jacb(fb->DimF(), fb->DimX());
-      
+
       fb->EvaluateDeriv(x, jacb);
       fa->EvaluateDeriv(tmp, jaca);
-
       df = jaca*jacb;
     }
   };

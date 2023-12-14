@@ -15,9 +15,9 @@ add_subdirectory (src)
 
 # add_executable (test_ode demos/test_ode.cc)
 
-add_executable (test_newmark demos/test_newmark.cc)
+# add_executable (test_newmark demos/test_newmark.cc)
 
-add_executable (test_alpha demos/test_alpha.cc)
+add_executable (test_alpha_2 demos/test_alpha_2.cc)
 
 # add_executable (test_RK demos/test_RK.cc)
 

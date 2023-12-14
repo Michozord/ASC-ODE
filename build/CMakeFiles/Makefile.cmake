@@ -51,6 +51,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/test_newmark.dir/DependInfo.cmake"
-  "CMakeFiles/test_alpha.dir/DependInfo.cmake"
+  "CMakeFiles/test_alpha_2.dir/DependInfo.cmake"
   )

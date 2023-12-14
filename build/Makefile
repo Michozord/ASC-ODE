@@ -161,78 +161,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_newmark
+# Target rules for targets named test_alpha_2
 
 # Build rule for target.
-test_newmark: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_newmark
-.PHONY : test_newmark
+test_alpha_2: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_alpha_2
+.PHONY : test_alpha_2
 
 # fast build rule for target.
-test_newmark/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_newmark.dir\build.make CMakeFiles/test_newmark.dir/build
-.PHONY : test_newmark/fast
+test_alpha_2/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha_2.dir\build.make CMakeFiles/test_alpha_2.dir/build
+.PHONY : test_alpha_2/fast
 
-#=============================================================================
-# Target rules for targets named test_alpha
-
-# Build rule for target.
-test_alpha: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_alpha
-.PHONY : test_alpha
-
-# fast build rule for target.
-test_alpha/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha.dir\build.make CMakeFiles/test_alpha.dir/build
-.PHONY : test_alpha/fast
-
-demos/test_alpha.obj: demos/test_alpha.cc.obj
-.PHONY : demos/test_alpha.obj
+demos/test_alpha_2.obj: demos/test_alpha_2.cc.obj
+.PHONY : demos/test_alpha_2.obj
 
 # target to build an object file
-demos/test_alpha.cc.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha.dir\build.make CMakeFiles/test_alpha.dir/demos/test_alpha.cc.obj
-.PHONY : demos/test_alpha.cc.obj
+demos/test_alpha_2.cc.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha_2.dir\build.make CMakeFiles/test_alpha_2.dir/demos/test_alpha_2.cc.obj
+.PHONY : demos/test_alpha_2.cc.obj
 
-demos/test_alpha.i: demos/test_alpha.cc.i
-.PHONY : demos/test_alpha.i
-
-# target to preprocess a source file
-demos/test_alpha.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha.dir\build.make CMakeFiles/test_alpha.dir/demos/test_alpha.cc.i
-.PHONY : demos/test_alpha.cc.i
-
-demos/test_alpha.s: demos/test_alpha.cc.s
-.PHONY : demos/test_alpha.s
-
-# target to generate assembly for a file
-demos/test_alpha.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha.dir\build.make CMakeFiles/test_alpha.dir/demos/test_alpha.cc.s
-.PHONY : demos/test_alpha.cc.s
-
-demos/test_newmark.obj: demos/test_newmark.cc.obj
-.PHONY : demos/test_newmark.obj
-
-# target to build an object file
-demos/test_newmark.cc.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_newmark.dir\build.make CMakeFiles/test_newmark.dir/demos/test_newmark.cc.obj
-.PHONY : demos/test_newmark.cc.obj
-
-demos/test_newmark.i: demos/test_newmark.cc.i
-.PHONY : demos/test_newmark.i
+demos/test_alpha_2.i: demos/test_alpha_2.cc.i
+.PHONY : demos/test_alpha_2.i
 
 # target to preprocess a source file
-demos/test_newmark.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_newmark.dir\build.make CMakeFiles/test_newmark.dir/demos/test_newmark.cc.i
-.PHONY : demos/test_newmark.cc.i
+demos/test_alpha_2.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha_2.dir\build.make CMakeFiles/test_alpha_2.dir/demos/test_alpha_2.cc.i
+.PHONY : demos/test_alpha_2.cc.i
 
-demos/test_newmark.s: demos/test_newmark.cc.s
-.PHONY : demos/test_newmark.s
+demos/test_alpha_2.s: demos/test_alpha_2.cc.s
+.PHONY : demos/test_alpha_2.s
 
 # target to generate assembly for a file
-demos/test_newmark.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_newmark.dir\build.make CMakeFiles/test_newmark.dir/demos/test_newmark.cc.s
-.PHONY : demos/test_newmark.cc.s
+demos/test_alpha_2.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_alpha_2.dir\build.make CMakeFiles/test_alpha_2.dir/demos/test_alpha_2.cc.s
+.PHONY : demos/test_alpha_2.cc.s
 
 # Help Target
 help:
@@ -246,14 +209,10 @@ help:
 	@echo ... install/strip
 	@echo ... list_install_components
 	@echo ... rebuild_cache
-	@echo ... test_alpha
-	@echo ... test_newmark
-	@echo ... demos/test_alpha.obj
-	@echo ... demos/test_alpha.i
-	@echo ... demos/test_alpha.s
-	@echo ... demos/test_newmark.obj
-	@echo ... demos/test_newmark.i
-	@echo ... demos/test_newmark.s
+	@echo ... test_alpha_2
+	@echo ... demos/test_alpha_2.obj
+	@echo ... demos/test_alpha_2.i
+	@echo ... demos/test_alpha_2.s
 .PHONY : help
 
 

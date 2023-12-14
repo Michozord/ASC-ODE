@@ -37,13 +37,20 @@ int main()
   ASC_bla::Vector<double> y { 1, 0 };
   auto rhs = std::make_shared<MassSpring>();
   std::ofstream ost;
-  ost.open ("C:/ESC/ASC-ODE/ASC-ODE/py_tests/output_ie.txt");
+  ost.open ("C:/Users/stein/Documents/ODE13.12/ASC-ODE/py_tests/output_ie.txt");
   SolveODE_IE(tend, steps, y, rhs,
               [&ost](double t, VectorView<double> y) { ost << t << "  " << y(0) << " " << y(1) << "\n"; });
   ost.close();
+  y(0)=1; y(1)=0;
   std::ofstream ost2;
-  ost2.open ("C:/ESC/ASC-ODE/ASC-ODE/py_tests/output_ee.txt");
+  ost2.open ("C:/Users/stein/Documents/ODE13.12/ASC-ODE/py_tests/output_ee.txt");
   SolveODE_EE(tend, steps, y, rhs,
               [&ost2](double t, VectorView<double> y) { ost2 << t << "  " << y(0) << " " << y(1) << "\n"; });
   ost2.close();
+  y(0)=1; y(1)=0;
+  std::ofstream ost3;
+  ost3.open ("C:/Users/stein/Documents/ODE13.12/ASC-ODE/py_tests/output_cn.txt");
+  SolveODE_CN(tend, steps, y, rhs,
+              [&ost3](double t, VectorView<double> y) { ost3 << t << "  " << y(0) << " " << y(1) << "\n"; });
+  ost3.close();
 }

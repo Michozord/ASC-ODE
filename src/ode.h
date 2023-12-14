@@ -49,6 +49,36 @@ namespace ASC_ode
       }
   }
 
+    //Crank-Nicolson for dy/dt = rhs(y)
+  void SolveODE_CN(double tend, int steps,
+                   VectorView<double> y, std::shared_ptr<NonlinearFunction> rhs,
+                   std::function<void(double,VectorView<double>)> callback = nullptr)
+  {
+    double dt = tend/steps;
+    auto yold = std::make_shared<ConstantFunction>(y);
+    auto ynew = std::make_shared<IdentityFunction>(y.Size());
+    Vector<double> rhs_old_eval(rhs->DimF());
+    //evaluate into rhs_old
+    rhs->Evaluate(y,rhs_old_eval);   
+    //create constant function with value rhs_old_eval
+    auto rhs_old = std::make_shared<ConstantFunction>(rhs_old_eval);
+    //use in CN-formula
+    auto equ = ynew - yold - (dt / 2.0) * (rhs + rhs_old);
+
+    double t = 0;
+    for (int i = 0; i < steps; i++)
+      {
+        NewtonSolver (equ, y);
+        yold->Set(y);
+        //update rhs_old_eval
+        rhs->Evaluate(y,rhs_old_eval);
+        //update the function
+        rhs_old->Set(rhs_old_eval);
+        t += dt;
+        if (callback) callback(t, y);
+      }
+  }
+
  // <template ASC_bla::ORDERING ORD>
   void SolveODE_RK(double tend, int steps,
                    VectorView<double> y, std::shared_ptr<NonlinearFunction> rhs,

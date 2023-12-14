@@ -29,7 +29,10 @@ int main()
   Vector<double> dx { 0. };
   auto rhs = std::make_shared<RHS>();
   auto mass = std::make_shared<IdentityFunction>(1);
+  std::ofstream ost;
+  ost.open ("../py_tests/output_newmark.txt");
   SolveODE_Newmark(tend, steps, x, dx, rhs, mass,
-                   [](double t, ASC_bla::VectorView<double> x) { std::cout << "t = " << t << ", x = " << x(0) << std::endl; }
+                   [&ost](double t, ASC_bla::VectorView<double> x) { ost << t << " " << x(0) << "\n"; }
                    );
+  ost.close();
 }

@@ -43,11 +43,13 @@ namespace ASC_ode
   class ConstantFunction : public NonlinearFunction
   {
     Vector<double> val;
+    size_t dim_x;
   public:
-    ConstantFunction (VectorView<double> _val) : val(_val) { }
+    ConstantFunction (VectorView<double> _val) : val(_val), dim_x(val.Size()) { }
+    ConstantFunction (VectorView<double> _val, size_t _dim_x) : val(_val), dim_x(_dim_x) { }
     void Set(VectorView<double> _val) { val = _val; }
     VectorView<double> Get() const { return val.View(); }
-    size_t DimX() const override { return val.Size(); }
+    size_t DimX() const override { return dim_x; }
     size_t DimF() const override { return val.Size(); }
     void Evaluate (VectorView<double> x, VectorView<double> f) const override
     {
@@ -284,9 +286,9 @@ namespace ASC_ode
       size_t s = A.Height();
       size_t n = (vecfun->DimF())/s;
       for(size_t l = 0; l < s; l++){
-        Matrix<double, ColMajor> tmp (df.Height(), df.Height());
+        Matrix<double, ColMajor> tmp (n, n);
         tmp.Diag() = A(j, l);
-        df.Rows(n*l, n*(l+1)) = tmp;
+        df.Cols(n*l, n*(l+1)) = tmp;
       }
     }
   };

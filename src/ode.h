@@ -86,10 +86,10 @@ namespace ASC_ode
                    std::function<void(double,VectorView<double>)> callback = nullptr)
   {
     double dt = tend/steps;
-    auto yold = std::make_shared<ConstantFunction>(y);
     int s = b.Size();   // number of stages
-    int n = y.Size();
-    auto k = std::make_shared<IdentityFunction>(y.Size() * s);
+    int n = y.Size();   // dimension of y
+    auto yold = std::make_shared<ConstantFunction>(y, n * s);
+    auto k = std::make_shared<IdentityFunction>(n * s);
     std::shared_ptr<NonlinearFunction>* funs = new std::shared_ptr<NonlinearFunction> [s];
     for (size_t i = 0; i<s; i++){
       auto tmp = std::make_shared<BlockMatVec>(A, k, i);
@@ -101,12 +101,10 @@ namespace ASC_ode
     for (size_t i = 0; i < steps; i++)
       {
         Vector<double> k_0 (n * s);
-        for(size_t j=0; j < n * s; j++){
+        for(size_t j=0; j < s; j++){
           rhs->Evaluate(y, k_0.Range(j * n, (j+1) * n));
         }
-        std::cout<<"1\n";
         NewtonSolver (equ, k_0);
-        std::cout<<"2\n";
         Vector<double> incr(n);
         incr = 0.;
         for(size_t l=0; l<s; l++){

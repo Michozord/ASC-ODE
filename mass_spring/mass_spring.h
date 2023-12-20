@@ -122,18 +122,18 @@ public:
 template <int D>
 std::ostream & operator<< (std::ostream & ost, MassSpringSystem<D> & mss)
 {
-  ost << "fixes:" << endl;
+  ost << "fixes:" << std::endl;
   for (auto f : mss.Fixes())
-    ost << f.pos << endl;
+    ost << f.pos <<std::endl;
 
-  ost << "masses: " << endl;
+  ost << "masses: " << std::endl;
   for (auto m : mss.Masses())
-    ost << "m = " << m.mass << ", pos = " << m.pos << endl;
+    ost << "m = " << m.mass << ", pos = " << m.pos <<std::endl;
 
-  ost << "springs: " << endl;
+  ost << "springs: " <<std::endl;
   for (auto sp : mss.Springs())
     ost << "length = " << sp.length << "stiffness = " << sp.stiffness
-        << ", C1 = " << sp.connections[0] << ", C2 = " << sp.connections[1] << endl;
+        << ", C1 = " << sp.connections[0] << ", C2 = " << sp.connections[1] <<std::endl;
   return ost;
 }
 
@@ -162,7 +162,7 @@ public:
     for (auto spring : mss.Springs())
       {
         auto [c1,c2] = spring.connections;
-        Vector<double> p1, p2;
+        Vector<double> p1 (xmat.Width()), p2(xmat.Width());
         if (c1.type == Connector::FIX)
           p1 = mss.Fixes()[c1.nr].pos;
         else
@@ -172,8 +172,8 @@ public:
         else
           p2 = xmat.Row(c2.nr);
 
-        double force = spring.stiffness * ((p1 + (-1)*p2).L2Norm()-spring.length);
-        Vec<D> dir12 = 1.0/L2Norm(p1-p2) * (p2-p1);
+        double force = spring.stiffness * (Vector<double>(p1 + (-1)*p2).L2Norm()-spring.length);
+        Vector<double> dir12 = 1.0/(Vector<double>(p1 + (-1)*p2).L2Norm()) * (p2+(-1)*p1);
         if (c1.type == Connector::MASS)
           fmat.Row(c1.nr) += force*dir12;
         if (c2.type == Connector::MASS)
@@ -184,7 +184,7 @@ public:
       fmat.Row(i) /= mss.Masses()[i].mass;
   }
   
-  virtual void EvaluateDeriv (VectorView<double> x, MatrixView<double> df) const
+  virtual void EvaluateDeriv (VectorView<double> x, MatrixView<double, ColMajor> df) const
   {
     // TODO: exact differentiation
     double eps = 1e-8;

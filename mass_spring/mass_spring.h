@@ -175,13 +175,13 @@ public:
         double force = spring.stiffness * (Vector<double>(p1 + (-1)*p2).L2Norm()-spring.length);
         Vector<double> dir12 = 1.0/(Vector<double>(p1 + (-1)*p2).L2Norm()) * (p2+(-1)*p1);
         if (c1.type == Connector::MASS)
-          fmat.Row(c1.nr) += force*dir12;
+          fmat.Row(c1.nr) = fmat.Row(c1.nr) + force*dir12;
         if (c2.type == Connector::MASS)
-          fmat.Row(c2.nr) -= force*dir12;
+          fmat.Row(c2.nr) = fmat.Row(c2.nr) + (-1) * force*dir12;
       }
 
     for (size_t i = 0; i < mss.Masses().size(); i++)
-      fmat.Row(i) /= mss.Masses()[i].mass;
+      fmat.Row(i) = (1/ mss.Masses()[i].mass)*fmat.Row(i) ;
   }
   
   virtual void EvaluateDeriv (VectorView<double> x, MatrixView<double, ColMajor> df) const

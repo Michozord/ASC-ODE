@@ -161,41 +161,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_RK
+# Target rules for targets named test_mass_spring
 
 # Build rule for target.
-test_RK: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_RK
-.PHONY : test_RK
+test_mass_spring: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test_mass_spring
+.PHONY : test_mass_spring
 
 # fast build rule for target.
-test_RK/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_RK.dir\build.make CMakeFiles/test_RK.dir/build
-.PHONY : test_RK/fast
+test_mass_spring/fast:
+	$(MAKE) $(MAKESILENT) -f mass_spring\CMakeFiles\test_mass_spring.dir\build.make mass_spring/CMakeFiles/test_mass_spring.dir/build
+.PHONY : test_mass_spring/fast
 
-demos/test_RK.obj: demos/test_RK.cc.obj
-.PHONY : demos/test_RK.obj
+#=============================================================================
+# Target rules for targets named mass_spring
 
-# target to build an object file
-demos/test_RK.cc.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_RK.dir\build.make CMakeFiles/test_RK.dir/demos/test_RK.cc.obj
-.PHONY : demos/test_RK.cc.obj
+# Build rule for target.
+mass_spring: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 mass_spring
+.PHONY : mass_spring
 
-demos/test_RK.i: demos/test_RK.cc.i
-.PHONY : demos/test_RK.i
-
-# target to preprocess a source file
-demos/test_RK.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_RK.dir\build.make CMakeFiles/test_RK.dir/demos/test_RK.cc.i
-.PHONY : demos/test_RK.cc.i
-
-demos/test_RK.s: demos/test_RK.cc.s
-.PHONY : demos/test_RK.s
-
-# target to generate assembly for a file
-demos/test_RK.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\test_RK.dir\build.make CMakeFiles/test_RK.dir/demos/test_RK.cc.s
-.PHONY : demos/test_RK.cc.s
+# fast build rule for target.
+mass_spring/fast:
+	$(MAKE) $(MAKESILENT) -f mass_spring\CMakeFiles\mass_spring.dir\build.make mass_spring/CMakeFiles/mass_spring.dir/build
+.PHONY : mass_spring/fast
 
 # Help Target
 help:
@@ -209,10 +198,8 @@ help:
 	@echo ... install/strip
 	@echo ... list_install_components
 	@echo ... rebuild_cache
-	@echo ... test_RK
-	@echo ... demos/test_RK.obj
-	@echo ... demos/test_RK.i
-	@echo ... demos/test_RK.s
+	@echo ... mass_spring
+	@echo ... test_mass_spring
 .PHONY : help
 
 

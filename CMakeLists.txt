@@ -19,6 +19,6 @@ add_subdirectory (src)
 
 # add_executable (test_alpha_2 demos/test_alpha_2.cc)
 
-add_executable (test_RK demos/test_RK.cc)
+# add_executable (test_RK demos/test_RK.cc)
 
-# add_subdirectory (mass_spring)
+add_subdirectory (mass_spring)

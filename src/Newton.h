@@ -18,8 +18,9 @@ namespace ASC_ode
     for (int i = 0; i < maxsteps; i++)
       {
         func->Evaluate(x, res);
-        // cout << "|res| = " << L2Norm(res) << endl;
+        std::cout << "|res| = " << std::endl;
         func->EvaluateDeriv(x, fprime);
+        std::cout<<"is mir egal"<<std::endl;
         fprime = fprime.invert();
         //VectorView<double> tmp (fprime.Width(), );
         x = Vector<double>(x) + (-1)* Vector<double>(fprime*res);

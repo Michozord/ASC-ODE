@@ -3,8 +3,8 @@
 
 
 
-#include <nonlinfunc.h>
-#include <ode.h>
+#include <../src/nonlinfunc.h>
+#include <../src/ode.h>
 
 using namespace ASC_ode;
 
@@ -19,8 +19,8 @@ class Mass
 public:
   double mass;
   Vector<double> pos;
-  Vector<double> vel = 0.0;
-  Vector<double> acc = 0.0;
+  Vector<double> vel = {0.0,0.0,0.0};
+  Vector<double> acc = {0.0,0.0,0.0};
 };
 
 

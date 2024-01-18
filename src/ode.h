@@ -152,7 +152,9 @@ namespace ASC_ode
     double t = 0;
     for (int i = 0; i < steps; i++)            
       {
+        std::cout<< "checking newton_in"<<std::endl;
         NewtonSolver (equ, a);
+        std::cout<< "checking newton_out"<<std::endl;
         xnew -> Evaluate (a, x);
         vnew -> Evaluate (a, v);
         xold->Set(x);

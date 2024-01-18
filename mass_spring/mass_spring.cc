@@ -25,8 +25,10 @@ int main()
   auto mass = std::make_shared<IdentityFunction> (x.Size());      
 
   mss.GetState (x, dx, ddx);
-  
+  std::cout << "hello peeps"<<std::endl;
   SolveODE_Newmark(tend, steps, x, dx,  mss_func, mass,
                    [](double t, ASC_bla::VectorView<double> x) { std::cout << "t = " << t
                                                              << ", x = " << ASC_bla::Vector<double>(x) << std::endl; });
+                                                             
+  std::cout << "hello peeps"<<std::endl;
 }
